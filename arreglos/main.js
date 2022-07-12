@@ -35,9 +35,9 @@ console.clear();
 //     alert("Diste click en el boton!!")
 // })
 
+let peliculas = [];
 document.querySelector("#peliculas-form").addEventListener("submit",agregar);
 
-let peliculas = 0;
 function agregar(evt){
     // console.log(evt.target);
     // alert(1);
