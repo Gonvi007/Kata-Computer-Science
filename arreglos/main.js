@@ -39,10 +39,7 @@ let peliculas = [];
 document.querySelector("#peliculas-form").addEventListener("submit",agregar);
 
 function agregar(evt){
-    // console.log(evt.target);
-    // alert(1);
-
-    evt.preventDefault(); // Esto es lo mimo que hacer ...
+    evt.preventDefault(); // Esto es lo mimo que hacer: document.querySelector("#peliculas-form");
     const {nombre, anio, foto} = evt.target;
     // console.log(evt.target);
 
@@ -63,35 +60,44 @@ function agregar(evt){
    evt.target.reset();
     //    document.querySelector("#peliculas-form").reset();
     
-    alert(`Pelicula guardada: ${peliculas.length}`);
-
+    // alert(`Pelicula guardada: ${peliculas.length}`);
+    dibujar();
 
 }
 
 function dibujar () {
     // Voy a recorrer el array peliculas
-    /* 
-    for(let i = 0; i<peliculas.length; i++){
-    }
+    // for(let i = 0; i<peliculas.length; i++){
+    // }
 
-    for(let n in peliculas) {
-        console.log(peliculas[n]);
-        document.querySelector("#resultados").innerHTML += 
-        `<div class="cpñ-4">
-            <div class="card mb-4">
-                <img src="${peliculas[n].caratula}" class="card-img-top">
+    /*
+    <div class="col">
+        <div class="card">
+            <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">${peliculas[n].titulo}</h5>
-                    <p class="card-text">${peliculas[n].fecha}></p>
-
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
-        
-        </div>`;
-    }
+        </div>
+    </div>
     */
 
-   for(let n in peliculas) {
-    console.log(peliculas[n]);
-   }
+    for(let n in peliculas) {
+ 
+        console.log(peliculas[n]);
+
+        document.querySelector("#resultados").innerHTML += `<div class="col">
+        <div class="card">
+            <img src="${peliculas[n].caratula}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">${peliculas[n].titulo}</h5>
+                    <p class="card-text">${peliculas[n].fecha}</p>
+                </div>
+            </div>
+        </div>
+    </div>`
+    }
+
 }
