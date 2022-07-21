@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    
+</head>
+<body>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="is-size-2 has-text-weight-semibold">Elefantes</h1>
+
+            <div class="control has-icons-right">
+                <input class="input is-rounded" type="email" placeholder="Buscar...">
+                <span class="icon is-small is-right">
+                  <i class="fas fa-search"></i>
+                </span>
+            </div>
+
+            <div class="tabs">
+                <ul>
+                  <li class="is-active"><a>Todos</a></li>
+                  <li><a>Hembras</a></li>
+                  <li><a>Machos</a></li>
+                  <li><a>De ficción</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="elefantes" class="mt-5">
+            <div class="columns is-multiline">
+                <div class="column is-3">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-3by4">
+                              <img src="https://elephant-api.herokuapp.com/pictures/missing.jpg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p><b>Nombre</b></p>
+                            <p>Sex</p>
+                            <p>affiliation</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+    <script src="./js/main.js"></script>
+</body>
+</html>
