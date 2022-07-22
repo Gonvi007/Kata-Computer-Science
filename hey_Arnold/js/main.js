@@ -4,7 +4,11 @@ fetch("https://hey-arnold-api.herokuapp.com/api/v1/characters")
         dibujar(data);
     })
 
+ 
 
+    const buscar = (evet) => {
+        console.log("Algo paso ?");
+    }
 
 /* <div class="column is-3">
     <div class="card">
@@ -24,20 +28,29 @@ fetch("https://hey-arnold-api.herokuapp.com/api/v1/characters")
 
 // function dibujar () {}
 const dibujar = (personajes) => {
-    let div = document.createElement("div");
-    div.classList.add("column", "is-3");
+    document.querySelector("#resultadoPersonajes").innerHTML="";
     
-    div.innerHTML = `<div class="card">
-                        <div class="card-image">
-                            <figure class="image is-3by4">
-                            <img src="https://vignette.wikia.nocookie.net/heyarnold/images/6/62/Nancy.jpg" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p><b>Nombre</b></p>
-                            <p>ID</p>
-                            <p>Descripción</p>
-                        </div>
+    personajes.forEach(personaje => {
+        /* Lectura de cada personaje */
+        let div = document.createElement("div");
+        div.classList.add("column", "is-3");
 
-                    </div>`;
+        div.innerHTML += `<div class="card" data-id="${personaje._id}">
+        <div class="card-image">
+            <figure class="image is-3by5">
+            <img src="${personaje.image}" alt="Placeholder image">
+            </figure>
+        </div>
+        <div class="card-content">
+            <p><b>${personaje.name}</b></p>
+            <p>Descripción</p>
+        </div>
+
+    </div>`;
+
+    document.querySelector("#resultadoPersonajes").append(div);
+    });
+
 }
+
+document.querySelector("#busqueda").addEventListener("keyup", buscar);
