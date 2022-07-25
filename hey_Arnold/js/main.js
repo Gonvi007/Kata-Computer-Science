@@ -1,14 +1,23 @@
-fetch("https://hey-arnold-api.herokuapp.com/api/v1/characters")
-    .then((response) => response.json())
-    .then((data) => {
-        dibujar(data);
-    })
+let resuladosBusqueda=[];
 
- 
+fetch("https://hey-arnold-api.herokuapp.com/api/v1/characters",{
+})
+.then((response)=>response.json())
+.then((data)=>{
+    resuladosBusqueda = data;
+    dibujar(resuladosBusqueda);
+})
 
-    const buscar = (evet) => {
-        console.log("Algo paso ?");
-    }
+const buscar = (evt) =>{
+    let nombre = evt.currentTarget.value;
+
+    let filtrados = resuladosBusqueda.filter(function(resultado){
+        return resultado.name.toLowerCase().includes(nombre.toLowerCase());
+    });
+
+    dibujar(filtrados);
+
+}
 
 /* <div class="column is-3">
     <div class="card">
@@ -35,18 +44,18 @@ const dibujar = (personajes) => {
         let div = document.createElement("div");
         div.classList.add("column", "is-3");
 
-        div.innerHTML += `<div class="card" data-id="${personaje._id}">
-        <div class="card-image">
-            <figure class="image is-3by5">
-            <img src="${personaje.image}" alt="Placeholder image">
-            </figure>
-        </div>
-        <div class="card-content">
-            <p><b>${personaje.name}</b></p>
-            <p>Descripción</p>
-        </div>
+        div.innerHTML += `  <div class="card" data-id="${personaje._id}">
+                                <div class="card-image">
+                                    <figure class="image is-3by5">
+                                    <img src="${personaje.image}" alt="Placeholder image">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <p><b>${personaje.name}</b></p>
+                                    <p>Descripción</p>
+                                </div>
 
-    </div>`;
+                            </div>`;
 
     document.querySelector("#resultadoPersonajes").append(div);
     });
