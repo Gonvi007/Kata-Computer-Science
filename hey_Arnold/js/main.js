@@ -1,4 +1,4 @@
-let resuladosBusqueda=[];
+let resuladosBusqueda = [];
 
 fetch("https://hey-arnold-api.herokuapp.com/api/v1/characters",{
 })
@@ -63,3 +63,24 @@ const dibujar = (personajes) => {
 }
 
 document.querySelector("#busqueda").addEventListener("keyup", buscar);
+
+let ordenAZ = document.querySelector('#ordenAZ');
+
+ordenAZ.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    document.querySelector("#container").value = "";
+    resuladosBusqueda.sort(function(a,b){
+        return a.name > b.name ? 1 : -1
+    })
+    dibujar(resuladosBusqueda);
+});
+
+let ordenZA = document.querySelector('#ordenZA');
+
+ordenZA.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    document.querySelector("#container").value = "";
+    resuladosBusqueda.reverse();
+
+    dibujar(resuladosBusqueda);
+});
