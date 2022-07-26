@@ -84,3 +84,18 @@ ordenZA.addEventListener("click", (evt) => {
 
     dibujar(resuladosBusqueda);
 });
+
+// Practica Con boton
+/*
+let orden = document.querySelector('#orden');
+
+orden.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    document.querySelector("#container").value = "";
+    resuladosBusqueda.sort(function(a,b){
+        return a.name > b.name ? 1 : -1
+    })
+    dibujar(resuladosBusqueda);
+});
+
+*/
