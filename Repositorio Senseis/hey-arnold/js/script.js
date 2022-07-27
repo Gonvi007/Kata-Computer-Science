@@ -42,5 +42,27 @@ const dibujar = (personajes) => {
    });
 } 
 
+let ordenAZ = document.querySelector('#ordenAZ');
+
+ordenAZ.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    document.querySelector("#container").value = "";
+    resuladosBusqueda.sort(function(a,b){
+        return a.name > b.name ? 1 : -1
+    })
+    dibujar(resuladosBusqueda);
+});
+
+let ordenZA = document.querySelector('#ordenZA');
+
+ordenZA.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    document.querySelector("#container").value = "";
+    resuladosBusqueda.reverse();
+
+    dibujar(resuladosBusqueda);
+});
+
+document.querySelector("#busqueda").addEventListener("keyup", buscar);
 document.querySelector("#busqueda").addEventListener("keyup", buscar);
 

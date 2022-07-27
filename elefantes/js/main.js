@@ -1,6 +1,6 @@
 let resultados=[];
 
-fetch("/js/elephants.json",{
+fetch("./js/elephants.json",{
 })
 .then((response)=>response.json())
 .then((data)=>{
@@ -10,6 +10,7 @@ fetch("/js/elephants.json",{
 
 const buscar = (evt) =>{
     let nombre = evt.currentTarget.value;
+    
     let filtrados = resultados.filter(function(resultado){
         return resultado.name.toLowerCase().includes(nombre.toLowerCase());
     });

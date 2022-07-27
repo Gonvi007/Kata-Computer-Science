@@ -19,9 +19,6 @@ const buscar = (evt) =>{
 
 }
 
-const todos = () => {
-    dibujar(resuladosBusqueda);
-};
 /* <div class="column is-3">
     <div class="card">
         <div class="card-image">
@@ -65,6 +62,8 @@ const dibujar = (personajes) => {
 
 }
 
+document.querySelector("#busqueda").addEventListener("keyup", buscar);
+
 let ordenAZ = document.querySelector('#ordenAZ');
 
 ordenAZ.addEventListener("click", (evt) => {
@@ -85,8 +84,3 @@ ordenZA.addEventListener("click", (evt) => {
 
     dibujar(resuladosBusqueda);
 });
-
-
-
-document.querySelector("#busqueda").addEventListener("keyup", buscar);
-document.querySelector("#todos").addEventListener("click", todos);
